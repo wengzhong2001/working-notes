@@ -1,0 +1,20 @@
+/*
+				$.ajax({
+					data:{'mobile':mobile},
+					dataType:'text',
+					url:'__APP__/Students/checkmobile',
+					type:'post',
+					success:function(res){
+						if(res=='ok'){
+							$("#name").css("background","#ffffff");
+							$("#tishi1").text("输入正确！");
+							$("#tishi1").css("color","#999");
+							$("#sub1").attr("disabled",null);
+						}else{
+							$("#name").css("background","#e76e66");
+							$("#tishi1").text("手机号码输入错误！在册学员才能注册哦！");
+							$("#tishi1").css("color","#e76e66");
+							$("#sub1").attr("disabled","true");
+						}
+					},
+				});*/
