@@ -1,0 +1,43 @@
+-- "由于已经达到 MaxReports 限制，没有写入 apport 报告" 错误解决办法。
+解决方法，记录一下。
+1.$ sudo mv /var/lib/dpkg/info /var/lib/dpkg/info_old //现将info文件夹更名
+2.$ sudo mkdir /var/lib/dpkg/info //再新建一个新的info文件夹
+3.$ sudo apt-get update, apt-get -f install //不用解释了吧
+4.$ sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info_old //执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info_old文件夹下
+5.$ sudo rm -rf /var/lib/dpkg/info //把自己新建的info文件夹删掉
+6.$ sudo mv /var/lib/dpkg/info_old /var/lib/dpkg/info //把以前的info文件夹重新改回名字
+
+
+-- 查看磁盘空间大小命令 
+df -hl 查看磁盘剩余空间
+df -h 查看每个根路径的分区大小
+du -sh [目录名] 返回该目录的大小
+du -sm [文件夹] 返回该文件夹总M数
+更多功能可以输入一下命令查看：
+df --help
+du --help
+
+-- 查看硬盘的分区 #sudo fdisk -l
+
+查看IDE硬盘信息 #sudo hdparm -i /dev/hda
+查看STAT硬盘信息 #sudo hdparm -I /dev/sda 或 #sudo apt-get install blktool #sudo blktool /dev/sda id
+查看硬盘剩余空间 #df -h #df -H
+查看目录占用空间 #du -hs 目录名
+优盘没法卸载 #sync fuser -km /media/usbdisk
+
+
+-- can't Ubuntu Make install Intellij IDEA on 16.04
+execute the following (if this is a new install):
+
+sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo apt update
+sudo apt install ubuntu-make
+
+
+If you still have it installed, you can just do the following:
+
+sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo apt update
+sudo apt dist-upgrade
+
+
